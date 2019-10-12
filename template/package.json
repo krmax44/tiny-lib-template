@@ -65,8 +65,7 @@
   },
   "prettier": {
     "bracketSpacing": true,
-    "singleQuote": true,
-    "useTabs": true
+    "singleQuote": true
   },
   "husky": {
     "hooks": {

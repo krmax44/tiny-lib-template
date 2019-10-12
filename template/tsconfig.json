@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "moduleResolution": "node",
-    "noImplicitAny": true,
+    "strict": true,
     "preserveConstEnums": true,
     "target": "es2015",
     "esModuleInterop": true,
@@ -16,6 +16,5 @@
   ],
   "include": [
     "src/**/*"
-  ],
-  "compileOnSave": true
+  ]
 }
