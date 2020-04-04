@@ -32,18 +32,6 @@
     "typescript": "^3.8.2",
     "xo": "^0.28.2"
   },
-  "ava": {
-    "compileEnhancements": false,
-    "extensions": [
-      "ts"
-    ],
-    "files": [
-      "**/*.test.ts"
-    ],
-    "require": [
-      "ts-node/register"
-    ]
-  },
   "xo": {
     "extends": [
       "xo-typescript",
