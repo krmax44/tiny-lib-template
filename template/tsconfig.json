@@ -4,14 +4,14 @@
     "moduleResolution": "node",
     "strict": true,
     "preserveConstEnums": true,
-    "target": "es2015",
+    "target": "esnext",
     "esModuleInterop": true,
     "declaration": true,
     "outDir": "./build/"
   },
   "exclude": [
     "node_modules",
-    "**/tests/**",
+    "**/__tests__/**",
     "**/build/**"
   ],
   "include": [

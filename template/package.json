@@ -11,25 +11,26 @@
   "author": "<%= username %><<%= email %>>",
   "license": "MIT",
   "scripts": {
-    "test": "ava && xo",
+    "test": "jest",
     "lint": "xo",
-    "build": "tsc -p ./tsconfig.json && uglifyjs build/index.js -o build/index.js",
-    "dev": "tsc -p ./tsconfig.json -w"
+    "ci": "yarn lint && yarn test --coverage",
+    "build": "tsc",
+    "dev": "tsc -w"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.3.3",
-    "@typescript-eslint/parser": "^2.3.3",
-    "ava": "^2.4.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-config-xo-typescript": "^0.19.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "husky": "^3.0.3",
-    "np": "^5.0.3",
-    "prettier": "^1.18.2",
-    "ts-node": "^8.4.1",
-    "typescript": "^3.6.3",
-    "uglify-es": "^3.3.9",
-    "xo": "^0.25.3"
+    "@types/jest": "^25.1.3",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-xo-typescript": "^0.27.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "np": "^6.1.0",
+    "prettier": "^2.0.2",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.2",
+    "xo": "^0.28.2"
   },
   "ava": {
     "compileEnhancements": false,
@@ -49,18 +50,21 @@
       "plugin:prettier/recommended"
     ],
     "extensions": [
-      "ts"
+      "ts",
+      "js"
     ],
-    "rules": {
-      "ava/no-ignored-test-files": [
-        "error",
-        {
-          "files": [
-            "**/*.test.ts"
-          ]
+    "ignores": [
+      "jest.config.js"
+    ],
+    "overrides": [
+      {
+        "files": "**/__tests__/**",
+        "rules": {
+          "unicorn/filename-case": "off",
+          "no-undef": "off"
         }
-      ]
-    },
+      }
+    ],
     "prettier": true
   },
   "prettier": {
@@ -69,7 +73,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test"
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test --clear-cache && yarn test"
     }
   }
 }
