@@ -12,8 +12,9 @@
   "author": "krmax44<hi@krmax44.de>",
   "license": "MIT",
   "scripts": {
-    "test": "tsc --noEmit && jest",
+    "test": "jest",
     "test:watch": "jest --watch",
+    "test:types": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore .",
     "dev": "tsup ./src/index.ts --watch",
     "build": "tsup ./src/index.ts --dts --minify --format esm,cjs"
